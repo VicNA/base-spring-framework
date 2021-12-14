@@ -1,4 +1,4 @@
-package ru.geekbrains.lesson1.homework;
+package homework;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;

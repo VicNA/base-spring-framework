@@ -1,4 +1,4 @@
-package ru.geekbrains.lesson1.homework;
+package homework;
 
 public interface Schedule {
     void doShow();

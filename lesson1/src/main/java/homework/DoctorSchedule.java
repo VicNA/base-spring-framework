@@ -1,4 +1,4 @@
-package ru.geekbrains.lesson1.homework;
+package homework;
 
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
