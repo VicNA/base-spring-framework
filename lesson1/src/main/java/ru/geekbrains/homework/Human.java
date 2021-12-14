@@ -1,4 +1,4 @@
-package homework;
+package ru.geekbrains.homework;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
