@@ -9,30 +9,58 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>lesson2</artifactId>
+    <artifactId>lesson3</artifactId>
     <packaging>war</packaging>
 
-    <name>lesson2 Maven Webapp</name>
+    <name>lesson3 Maven Webapp</name>
     <!-- FIXME change it to the project's website -->
     <url>http://www.example.com</url>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <spring.version>5.0.8.RELEASE</spring.version>
+        <jetty.version>9.2.26.v20180806</jetty.version>
     </properties>
 
     <dependencies>
+        <!--Spring-->
         <dependency>
-            <groupId>javax.servlet</groupId>
-            <artifactId>javax.servlet-api</artifactId>
-            <version>4.0.1</version>
-            <scope>provided</scope>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-webmvc</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-web</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-core</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+
+        <!--Jetty-->
+        <dependency>
+            <groupId>org.eclipse.jetty</groupId>
+            <artifactId>jetty-server</artifactId>
+            <version>${jetty.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.eclipse.jetty</groupId>
+            <artifactId>jetty-webapp</artifactId>
+            <version>${jetty.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.eclipse.jetty</groupId>
+            <artifactId>jetty-jsp</artifactId>
+            <version>${jetty.version}</version>
         </dependency>
 
         <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-api</artifactId>
-            <version>1.7.32</version>
-            <scope>provided</scope>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>2.9.6</version>
         </dependency>
 
         <dependency>
@@ -44,20 +72,32 @@
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>4.13.2</version>
+            <version>4.11</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
 
     <build>
-        <finalName>lesson2</finalName>
+
+        <resources>
+
+            <resource>
+                <directory>src/main/webapp</directory>
+            </resource>
+
+            <resource>
+                <directory>${basedir}/src/main/webapp/resources/properties</directory>
+                <includes>
+                    <include>app.properties</include>
+                </includes>
+                <targetPath>..</targetPath>
+            </resource>
+
+        </resources>
+
+        <finalName>lesson3</finalName>
         <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
             <plugins>
-                <plugin>
-                    <groupId>org.wildfly.plugins</groupId>
-                    <artifactId>wildfly-maven-plugin</artifactId>
-                    <version>2.0.1.Final</version>
-                </plugin>
                 <plugin>
                     <artifactId>maven-clean-plugin</artifactId>
                     <version>3.1.0</version>
