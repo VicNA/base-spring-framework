@@ -6,6 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import ru.geekbrains.homework.enitites.Product;
 import ru.geekbrains.homework.services.ProductService;
@@ -40,7 +41,7 @@ public class ProductController {
         return "product-form";
     }
 
-    @GetMapping("/processForm")
+    @PostMapping("/processForm")
     public String processForm(@ModelAttribute("product") Product product) {
         productService.addProduct(product);
         return "product-form-result";
