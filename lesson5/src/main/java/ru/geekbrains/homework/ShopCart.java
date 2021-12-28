@@ -15,13 +15,16 @@ import java.util.List;
 public class ShopCart {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+
+    @Column(name = "number", nullable = false, unique = true)
+    private long number;
 
     @ManyToOne
     @JoinColumn(name = "user_id")
-    private User userId;
+    private User user;
 
     @ManyToMany
     @JoinTable(
@@ -30,4 +33,11 @@ public class ShopCart {
             inverseJoinColumns =  @JoinColumn(name = "product_id")
     )
     private List<Product> products;
+
+    public ShopCart() {
+    }
+
+    public ShopCart(User user) {
+        this.user = user;
+    }
 }

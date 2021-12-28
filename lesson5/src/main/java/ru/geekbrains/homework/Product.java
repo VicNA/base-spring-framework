@@ -19,10 +19,10 @@ public class Product {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @Column
+    @Column(nullable = false, unique = true)
     private String title;
 
-    @Column
+    @Column(nullable = false)
     private int price;
 
     @ManyToMany
@@ -33,4 +33,11 @@ public class Product {
     )
     private List<ShopCart> shopCarts;
 
+    public Product() {
+    }
+
+    public Product(String title, int price) {
+        this.title = title;
+        this.price = price;
+    }
 }

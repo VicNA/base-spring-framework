@@ -22,6 +22,10 @@ public class User {
     @Column(name = "name", nullable = false, unique = true)
     private String name;
 
-    @Column(name = "score")
-    private int score;
+    @OneToMany(mappedBy = "ShopCart")
+    private List<ShopCart> shopCarts;
+
+    public User(String name) {
+        this.name = name;
+    }
 }
