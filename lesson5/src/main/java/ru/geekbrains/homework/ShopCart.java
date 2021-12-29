@@ -1,27 +1,26 @@
 package ru.geekbrains.homework;
 
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.List;
 
-@Getter
-@Setter
-@ToString
+@RequiredArgsConstructor @NoArgsConstructor
+@Getter @Setter @ToString
 @Entity
-@Table(name = "ShopCart")
+@Table(name = "shopcart")
 public class ShopCart {
 
     @Id
-    @Column
+    @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
+    @NonNull
     @Column(name = "number", nullable = false, unique = true)
     private long number;
 
+    @NonNull
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;
@@ -32,12 +31,6 @@ public class ShopCart {
             joinColumns = @JoinColumn(name = "cart_id"),
             inverseJoinColumns =  @JoinColumn(name = "product_id")
     )
+    @ToString.Exclude
     private List<Product> products;
-
-    public ShopCart() {
-    }
-
-    public ShopCart(User user) {
-        this.user = user;
-    }
 }

@@ -1,17 +1,14 @@
 package ru.geekbrains.homework;
 
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.List;
 
-@Getter
-@Setter
-@ToString
+@RequiredArgsConstructor @NoArgsConstructor
+@Getter @Setter @ToString
 @Entity
-@Table(name = "User")
+@Table(name = "user")
 public class User {
 
     @Id
@@ -19,13 +16,12 @@ public class User {
     @Column(name = "id")
     private long id;
 
+    @NonNull
     @Column(name = "name", nullable = false, unique = true)
     private String name;
 
-    @OneToMany(mappedBy = "ShopCart")
+    @OneToMany(mappedBy = "user")
+    @ToString.Exclude
     private List<ShopCart> shopCarts;
 
-    public User(String name) {
-        this.name = name;
-    }
 }
