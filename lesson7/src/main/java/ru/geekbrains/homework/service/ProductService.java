@@ -17,4 +17,8 @@ public class ProductService {
     public Iterable<Product> findAll() {
         return productRepository.findAll();
     }
+
+    public void removeById(Long id) {
+        productRepository.deleteById(id);
+    }
 }

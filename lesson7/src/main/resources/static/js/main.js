@@ -1,7 +1,7 @@
 $(document).ready(function() {
     $('.removeBtn').on('click', function(event) {
 		var studentId = $(this).attr('entryIndex');
-		$.get("/students/remove/" + studentId);
+		$.get("/products/remove/" + productId);
 		location.reload();
 	});
 

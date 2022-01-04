@@ -35,13 +35,14 @@
 
 <div class="container">
     <br>
-    <h1>@GeekMarket</h1>
+    <h1>Витрина</h1>
     <table class="table">
         <thead class="thead-dark">
         <tr>
             <th>id</th>
             <th>Продукт</th>
             <th>Категория</th>
+            <th>Действие</th>
         </tr>
         </thead>
 
@@ -49,6 +50,10 @@
             <td th:text="${product.id}"/>
             <td th:text="${product.name}"/>
             <td th:text="${product.category.name}"/>
+            <td>
+<!--                <button class="btn btn-primary infoBtn" th:attr="entryIndex=${product.id}">Инфо</button>-->
+                <a class="btn btn-danger" th:href="@{'/products/remove/' + ${product.id}}" role="button">Удалить</a>
+            </td>
         </tr>
     </table>
 </div>
