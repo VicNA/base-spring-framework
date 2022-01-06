@@ -9,6 +9,8 @@
         <outputRelativeToContentRoot value="true" />
         <module name="lesson4" />
         <module name="lesson5" />
+        <module name="lesson6" />
+        <module name="lesson7" />
         <module name="lesson1" />
         <module name="lesson2" />
         <module name="lesson3" />
@@ -18,6 +20,8 @@
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="lesson4" options="-parameters" />
+      <module name="lesson6" options="-parameters" />
+      <module name="lesson7" options="-parameters" />
     </option>
   </component>
 </project>
