@@ -21,7 +21,4 @@ public class Category {
 
     @Column(name = "name", nullable = false)
     private String name;
-
-    @OneToMany
-    private List<Product> products;
 }

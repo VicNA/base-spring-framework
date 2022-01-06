@@ -8,6 +8,6 @@ import ru.geekbrains.homework.entities.Product;
 import java.util.List;
 
 @Repository
-public interface ProductRepository extends PagingAndSortingRepository<Product, Long> {
+public interface ProductRepository extends JpaRepository<Product, Long> {
 
 }
